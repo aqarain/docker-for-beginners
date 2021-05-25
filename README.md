@@ -125,10 +125,9 @@ It is a website and central repository just like GitHub but it contains differen
 	- Again run the container for the back-end app using a complex command which involves different tags as shown in the Docker Volumes
 - Here there are only two interdependent apps and still as you see this is a cumbersome process as you might make a mistake running the different commands. Imagine if an app is dependent on 10 different apps and you have to repeat the same steps for each.
 - This is where docker compose comes into the picture
-- With ***docker compose***, we can put all of the configurations into one file like how to build the image and how to run the container
-- We can put configurations for multiple docker images and containers into 1 file that needs to run to run our app and execute that file with one simple command: `$ docker-compose up`
+- With ***docker compose***, we can put all of the configurations into one file (***docker-compose.yaml***) like how to build the image and how to run the container
+- We can put configurations for multiple docker images and containers that are needed to run our app into 1 file (***docker-compose.yaml***) and later on, execute that file with one simple command: `$ docker-compose up`
 - This will automatically create all the docker images and run the required containers
-- The name of the file is ***docker-compose.yaml***
 - To stop the containers: `$ docker-compose down`
 
 ## Docker Commands
