@@ -5,7 +5,7 @@ This is a guide for beginners who have zero knowledge of Docker. It contains all
 ## Docker
 - ***A Tool*** for creating and managing containers
 - You can create containers without Docker but it is the defacto standard for creating and managing containers as it makes the whole process easy
-- These are the three main types of cloud computing: PaaS, SaaS, IaaS.** *Docker is a set of PaaS products***
+- These are the three main types of cloud computing: PaaS, SaaS, IaaS. ***Docker is a set of PaaS products***
 
 ## Container
 - It is a completely isolated environment 
@@ -68,6 +68,11 @@ It is a website and central repository just like GitHub but it contains differen
 ## Steps to Dockerise an Application
 **1. Write a Dockerfile**
 
+![alt text](/assets/docker-file.png "Dockerfile")
+
+![alt text](/assets/docker-image-box.png "DockerImage Box")
+
+
 **2. Build a Docker Image**
 
 - Run the above command in the root directory (. specifies the location of Dockerfile)
@@ -91,6 +96,7 @@ It is a website and central repository just like GitHub but it contains differen
 - We can solve the above problem with ***Volumes***
 - With Volumes, we basically map our code directory to the working directory of the container as shown in the diagram below
 
+![alt text](/assets/volumes.png "Volumes")
 
 - We can achieve the above mapping using the below command
 	`$ -v <<absolutePath of our code>>:<<Path to the container working directory>>`
