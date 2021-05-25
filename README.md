@@ -1,67 +1,63 @@
-# Docker for Beginners
+# Docker Guide for Beginners
 
 This is a guide for beginners who have zero knowledge of Docker. It contains all the important terminologies and concepts that you need to know to have the basic understanding of Docker.
 
-**Table of Contents**
-
-[TOC]
-
-#Docker
+## Docker
 - ***A Tool*** for creating and managing containers
 - You can create containers without Docker but it is the defacto standard for creating and managing containers as it makes the whole process easy
 - These are the three main types of cloud computing: PaaS, SaaS, IaaS.** *Docker is a set of PaaS products***
 
-#Container
+## Container
 - It is a completely isolated environment 
 - Code + All its dependencies to run that code
 - For e.g. NodeJS Code + Packages to run NodeJS code + NodeJS Runtime 
 - Containers work standalone. They have everything to run the containing code
 - All modern OS support containers
 
-#Why do we need containers?
+## Why do we need containers?
 1. Multiple people work on the same projects and they might have different OS and different packages like NodeJS versions installed so the NodeJS app might fail on some developer’s machines if there is inconsistency
 	- For e.g. Our Node app requires Node v14 and Linux OS but DevA has Node v13 installed on his computer and DevB has Windows OS
 	- If we use a container, the container will have its own OS and Node version
 2. Development and Production environments may have different OS and NodeJS versions so our code might work locally on dev but fail in the production environment
 	- If we use Docker image and spin up a container from it at both dev and prod, then we won’t have to deal with any OS or versioning mismatch issue
 
-#Docker Desktop
+## Docker Desktop
 - It is a GUI application to manage (run, stop, kill, remove) Docker Images and Containers
 - You cannot run any docker commands in Terminal if Docker Desktop is not running
 - It is only available on macOS and Windows ***if the requirements are met***
 
-#Docker Toolbox
+## Docker Toolbox
 - An alternative tool to Docker Desktop means if you cannot run Docker Desktop on your macOS and Windows
 - On older OS, containers are not supported so you cannot install Docker Desktop
 - So, what you do is first install a Linux Virtual Machine on your old macOS or Windows and then install Docker Toolbox in that VM to run Docker
 - You cannot run any docker commands in Terminal if Docker Toolbox is not running
 - It is only available on macOS and Windows ***if the requirements are NOT met***
 
-#Docker Engine
+## Docker Engine
 - No matter we install **Docker Desktop** or **Docker Toolbox**, we actually install Docker Engine
 - Linux natively supports containers and the technology Docker uses so you can directly install Docker Engine on Linux
 - Unlike macOS and Windows, where you have to run Docker Desktop or Docker Toolbox first to run any docker commands, on Linux you can run any commands without explicitly running anything
 
-#Docker Hub
+## Docker Hub
 It is a website and central repository just like GitHub but it contains different Docker Images
 
-#Dockerfile
+## Dockerfile
 ***A file*** that contains a bunch of instructions needed to generate/build a docker image
 
-#Docker Image
+## Docker Image
 - Docker image contains everything needed to run our application
 - Docker Image is read-only. It is ***not the running application*** itself
 - Docker image allows us to spin up as many running instances of the application
 
-#Docker Container
+## Docker Container
 - When we want to run our NodeJS app, we create an instance of the Docker Image
 - It is basically the ***running instance of our application***
 
-#.dockerignore file
+## .dockerignore file
 - We specify the files and folders we don’t want to be copied from our root project working directory to the DockerImage box
 - We can keep “node_modules” in this file because we already have the “RUN npm install” command in the Dockerfile
 
-#Port Mapping
+## Port Mapping
 - Let’s say your node app runs on localhost:3000 and now you write a Dockerfile, build the image, run the container and go to the browser and enter localhost:3000.
 - Your application won’t run because the browser points to your machine’s port, not the container’s port
 - So, you have to do the port mapping to run the app from the container
@@ -69,7 +65,7 @@ It is a website and central repository just like GitHub but it contains differen
 
 - Now the port 3000 from our local machine will be forwarded to the container
 
-#Steps to Dockerise an Application
+## Steps to Dockerise an Application
 **1. Write a Dockerfile**
 
 **2. Build a Docker Image**
@@ -89,7 +85,7 @@ It is a website and central repository just like GitHub but it contains differen
 
 	`$ docker run -it <<imageName>>` (to run the container in interactive mode)
 
-#Volumes
+## Volumes
 - Normally when you are running the app through a container, and if you make changes in the code, the changes won’t be shown in the running app like they usually do when you run the code directly through the `$ npm run start` command
 - For the changes to show, you have to rebuild the image and run the container again. And this is a long process
 - We can solve the above problem with ***Volumes***
@@ -114,7 +110,7 @@ It is a website and central repository just like GitHub but it contains differen
 	- `-p 3000:3000` is doing the port mapping
 	- `react-app` is the Docker Image name
 
-#Docker Compose
+## Docker Compose
 - Used to manage multi-container applications
 - Let’s say, for your front-end app to run, you have to run a back-end app as well. Now for this whole process what you have to do is:
 	- Build docker image for the front-end app
@@ -129,7 +125,7 @@ It is a website and central repository just like GitHub but it contains differen
 - The name of the file is ***docker-compose.yaml***
 - To stop the containers: `$ docker-compose down`
 
-#Docker Commands
+## Docker Commands
 |  Purpose |  Commands |
 | ------------ | ------------ |
 | **Build Docker Image**  |  `$ docker build .`<br> `$ docker build -t express-app . `(***-t*** specifies image name) <br> `$ docker build -t express-app:v2 .` (specifying version #) |
