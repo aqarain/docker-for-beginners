@@ -55,11 +55,11 @@ It is a website and central repository just like GitHub but it contains differen
 
 ## .dockerignore file
 - We specify the files and folders we don’t want to be copied from our root project working directory to the DockerImage box
-- We can keep “node_modules” in this file because we already have the “RUN npm install” command in the Dockerfile
+- We can keep “node_modules” in this file because we already have the `RUN npm install` command in the Dockerfile to install node_modules
 
 ## Port Mapping
-- Let’s say your node app runs on localhost:3000 and now you write a Dockerfile, build the image, run the container and go to the browser and enter localhost:3000.
-- Your application won’t run because the browser points to your machine’s port, not the container’s port
+- Let’s say your node app runs on http://localhost:3000 and now you write a Dockerfile, build the image, run the container and go to the browser and enter http://localhost:3000
+- Your application won’t run because the browser points to your machine’s port, not to the container’s port
 - So, you have to do the port mapping to run the app from the container
 	`$ docker run -p 3000:3000 <<ImageName>>`
 
@@ -75,10 +75,10 @@ It is a website and central repository just like GitHub but it contains differen
 
 **2. Build a Docker Image**
 
-- Run the above command in the root directory (. specifies the location of Dockerfile)
+- Run the above command in the root directory (***.*** specifies the location of Dockerfile)
 `$ docker build .`
 
-- We can give the docker image a name with the -t flag
+- We can give the docker image a name with the ***-t*** flag
 `$ docker build -t express-app .`
 
 **3. Run an instance of Docker Image known as a Container**
